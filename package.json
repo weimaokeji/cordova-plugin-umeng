@@ -1,7 +1,7 @@
 {
-  "name": "umeng-analytics-sdk",
+  "name": "cordova-plugin-umeng-analytics",
   "version": "3.0.0",
-  "description": "umeng sdk Plugin",
+  "description": "umeng analytics sdk Plugin",
   "prepare_queue": {
       "installed": [],
       "uninstalled": []
