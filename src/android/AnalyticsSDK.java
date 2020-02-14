@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 public class AnalyticsSDK extends CordovaPlugin {
     private Context mContext = null;
+    private boolean hasInit = false;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -39,6 +40,9 @@ public class AnalyticsSDK extends CordovaPlugin {
     @Override
     public void onResume(boolean multitasking) {
         super.onResume(multitasking);
+        if (!hasInit) {
+            return;
+        }
 
         MobclickAgent.onResume(mContext);
     }
@@ -46,6 +50,9 @@ public class AnalyticsSDK extends CordovaPlugin {
     @Override
     public void onPause(boolean multitasking) {
         super.onPause(multitasking);
+        if (!hasInit) {
+            return;
+        }
         Log.d("UMPlugin", "onPause");
         MobclickAgent.onPause(mContext);
     }
@@ -58,6 +65,7 @@ public class AnalyticsSDK extends CordovaPlugin {
             String channelId = args.optString(1);
             PGCommonSDK.init(cordova.getActivity(), appKey, null != channelId ? channelId : "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
                             null);
+            hasInit = true;
             callbackContext.success();
             return true;
         } else if (action.equals("onEvent")) {
