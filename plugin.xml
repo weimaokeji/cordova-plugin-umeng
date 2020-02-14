@@ -25,6 +25,10 @@
         </config-file>
         <framework src="src/ios/UMCommon.framework" custom="true" />
         <framework src="src/ios/UMAnalytics.framework" custom="true" />
+        <framework src="libsqlite.tbd" />
+        <framework src="libz.tbd" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="SystemConfiguration.framework" />
 
     </platform>
     <!-- android -->
@@ -35,12 +39,12 @@
         <source-file src="src/android/PGCommonSDK.java" target-dir="src/com/umeng/plugin" />
         <source-file src="src/android/AnalyticsSDK.java" target-dir="src/com/umeng/plugin" />
 
-        <config-file target="res/xml/config.xml" parent="/widget/plugins">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="AnalyticsSDK">
                 <param name="android-package" value="com.umeng.plugin.AnalyticsSDK"/>
             </feature>
         </config-file>
-        <config-file target="AndroidManifest.xml" parent="/manifest">
+        <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />

@@ -1,4 +1,3 @@
-cordova.define("Umeng.Analytics", function(require, exports, module) {
 /*
  * Javascript interface of Cordova plugin for Umeng Analytics SDK
  */
@@ -182,4 +181,3 @@ var MobclickAgent = {
 
       module.exports =MobclickAgent;
 
-});
