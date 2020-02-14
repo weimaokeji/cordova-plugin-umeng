@@ -18,7 +18,7 @@
         <header-file src="src/ios/UMAnalyticsModule.h" />
         <source-file src="src/ios/UMAnalyticsModule.m" />
 
-        <config-file target="config.xml" parent="/widget/plugins">
+        <config-file target="config.xml" parent="/*">
             <feature name="AnalyticsSDK">
                 <param name="ios-package" value="UMAnalyticsModule"/>
             </feature>
